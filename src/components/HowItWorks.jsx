@@ -2,7 +2,7 @@ import { Smartphone, MapPin, Coins, ShieldCheck } from 'lucide-react'
 
 const steps = [
   {
-    icon: <Smartphone className="w-7 h-7" />,
+    icon: <Smartphone className="w-6 h-6 sm:w-7 sm:h-7" />,
     number: '01',
     title: 'Descarga la app',
     desc: 'Regístrate gratis, conecta tu wallet de Solana y activa el rastreo de actividad.',
@@ -11,7 +11,7 @@ const steps = [
     bg: 'bg-green-500/10',
   },
   {
-    icon: <MapPin className="w-7 h-7" />,
+    icon: <MapPin className="w-6 h-6 sm:w-7 sm:h-7" />,
     number: '02',
     title: 'Rastrea tu movilidad',
     desc: 'GPS verifica que camines o vayas en bici. Cada kilómetro es carbono ahorrado vs. un auto.',
@@ -20,7 +20,7 @@ const steps = [
     bg: 'bg-cyan-500/10',
   },
   {
-    icon: <ShieldCheck className="w-7 h-7" />,
+    icon: <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7" />,
     number: '03',
     title: 'Se acuña tu bono',
     desc: 'El ahorro se registra inmutablemente en la blockchain de Solana como un crédito de carbono verificado.',
@@ -29,7 +29,7 @@ const steps = [
     bg: 'bg-purple-500/10',
   },
   {
-    icon: <Coins className="w-7 h-7" />,
+    icon: <Coins className="w-6 h-6 sm:w-7 sm:h-7" />,
     number: '04',
     title: 'Cobra en cripto',
     desc: 'Empresas compran tus bonos. Tú recibes SOL directamente en tu wallet, sin intermediarios.',
@@ -41,35 +41,30 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="como-funciona" className="py-24 px-4 sm:px-6 lg:px-8">
+    <section id="como-funciona" className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-green-400 font-semibold text-sm uppercase tracking-widest mb-3">El proceso</p>
-          <h2 className="text-4xl sm:text-5xl font-extrabold">
+        <div className="text-center mb-10 lg:mb-16">
+          <p className="text-green-400 font-semibold text-xs sm:text-sm uppercase tracking-widest mb-3">El proceso</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold">
             Cómo funciona{' '}
             <span className="gradient-text">Carbónicos</span>
           </h2>
-          <p className="text-gray-500 mt-4 max-w-xl mx-auto">
+          <p className="text-gray-500 mt-4 max-w-xl mx-auto text-sm sm:text-base px-2">
             De la actividad física a los créditos de carbono en 4 pasos simples, todo auditado en Solana.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {steps.map((s) => (
-            <div key={s.number} className={`card-glass rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 ${s.border}`}>
-              <div className={`w-12 h-12 rounded-xl ${s.bg} flex items-center justify-center mb-4 ${s.color}`}>
+            <div key={s.number} className={`card-glass rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 ${s.border}`}>
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${s.bg} flex items-center justify-center mb-3 sm:mb-4 ${s.color}`}>
                 {s.icon}
               </div>
               <span className={`text-xs font-bold ${s.color} opacity-60`}>{s.number}</span>
-              <h3 className="text-lg font-bold text-white mt-1 mb-2">{s.title}</h3>
+              <h3 className="text-base sm:text-lg font-bold text-white mt-1 mb-2">{s.title}</h3>
               <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
-        </div>
-
-        {/* Connector line for large screens */}
-        <div className="hidden lg:flex items-center justify-center mt-4 relative">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent" />
         </div>
       </div>
     </section>
