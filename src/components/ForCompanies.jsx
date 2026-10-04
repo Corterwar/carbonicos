@@ -25,7 +25,7 @@ const perks = [
 
 export default function ForCompanies() {
   return (
-    <section id="empresas" className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <section id="empresas" className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: dashboard mockup */}

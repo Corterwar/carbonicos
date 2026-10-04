@@ -41,7 +41,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="como-funciona" className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <section id="como-funciona" className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 lg:mb-16">
           <p className="text-green-400 font-semibold text-xs sm:text-sm uppercase tracking-widest mb-3">El proceso</p>

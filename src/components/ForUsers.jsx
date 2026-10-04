@@ -25,7 +25,7 @@ const benefits = [
 
 export default function ForUsers() {
   return (
-    <section id="usuarios" className="py-16 lg:py-24 bg-[#0d130d]">
+    <section id="usuarios" className="py-16 lg:py-24 bg-[#0d130d] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: content */}
