@@ -1,103 +1,129 @@
 import { Bike, Footprints, TrendingUp, Wallet } from 'lucide-react'
+import Reveal from './Reveal'
+import { IMG } from '../assets/images'
 
 const benefits = [
   {
-    icon: <Footprints className="w-5 h-5 sm:w-6 sm:h-6" />,
-    title: 'Cada paso cuenta',
-    desc: 'Registramos tus caminatas y viajes en bici con GPS preciso. Solo movilidad real genera créditos.',
+    icon: <Footprints className="w-5 h-5" />,
+    title: 'Every step counts',
+    desc: 'We track your walks and bike rides with precise GPS. Only real mobility generates credits.',
   },
   {
-    icon: <Bike className="w-5 h-5 sm:w-6 sm:h-6" />,
-    title: 'Ciclistas recompensados',
-    desc: 'Los ciclistas ahorran hasta 180g de CO₂ por km comparado con un auto. Cada km vale dinero real.',
+    icon: <Bike className="w-5 h-5" />,
+    title: 'Cyclists rewarded',
+    desc: 'Cyclists save up to 180g of CO₂ per km compared to a car. Every km is worth real money.',
   },
   {
-    icon: <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />,
-    title: 'Dashboard de impacto',
-    desc: 'Ve en tiempo real cuánto CO₂ has ahorrado, tus bonos acumulados y el historial de ventas.',
+    icon: <TrendingUp className="w-5 h-5" />,
+    title: 'Impact dashboard',
+    desc: 'See in real time how much CO₂ you have saved, your accumulated credits, and sales history.',
   },
   {
-    icon: <Wallet className="w-5 h-5 sm:w-6 sm:h-6" />,
-    title: 'Pago en SOL',
-    desc: 'Cuando tus bonos se venden, recibes Solana directamente. Sin bancos, sin esperas, sin fees ocultos.',
+    icon: <Wallet className="w-5 h-5" />,
+    title: 'Paid in SOL',
+    desc: 'When your credits sell, you receive Solana directly. No banks, no waiting, no hidden fees.',
   },
 ]
 
 export default function ForUsers() {
   return (
-    <section id="usuarios" className="py-16 lg:py-24 bg-[#0d130d] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <section id="usuarios" className="relative py-20 lg:py-28 bg-[#080e08] overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px divider-glow opacity-60" />
+      <div className="absolute -left-40 top-1/3 w-96 h-96 bg-green-500/10 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="relative w-full max-w-[88rem] mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="grid xl:grid-cols-[0.95fr_1.05fr] gap-12 xl:gap-20 items-center">
           {/* Left: content */}
           <div>
-            <p className="text-green-400 font-semibold text-xs sm:text-sm uppercase tracking-widest mb-3">Para usuarios</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 sm:mb-6">
-              Tu movilidad{' '}
-              <span className="gradient-text">genera valor</span>
-            </h2>
-            <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-10">
-              Deja que tus hábitos de transporte sostenible trabajen para ti. No necesitas hacer nada diferente, solo moverte como siempre y dejar que Carbónicos lo registre.
-            </p>
+            <Reveal>
+              <p className="eyebrow text-green-400 mb-4">For users</p>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.08] mb-5">
+                Your mobility <span className="gradient-text">generates value</span>
+              </h2>
+              <p className="text-gray-400 text-base sm:text-lg leading-relaxed mb-9 max-w-xl">
+                Let your sustainable transport habits work for you. You don't need to do anything
+                different — just move as usual and let Carbónicos record it.
+              </p>
+            </Reveal>
 
-            <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
-              {benefits.map((b) => (
-                <div key={b.title} className="flex gap-3 sm:gap-4">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 bg-green-500/15 rounded-xl flex items-center justify-center text-green-400 shrink-0">
-                    {b.icon}
+            <div className="grid sm:grid-cols-2 gap-5">
+              {benefits.map((b, i) => (
+                <Reveal key={b.title} delay={100 + i * 100}>
+                  <div className="flex gap-4 h-full">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-green-500/25 to-green-500/5 border border-green-500/25 flex items-center justify-center text-green-400 shrink-0">
+                      {b.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-display font-semibold text-white mb-1.5 text-[15px]">
+                        {b.title}
+                      </h4>
+                      <p className="text-gray-500 text-sm leading-relaxed">{b.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-white mb-1 text-sm sm:text-base">{b.title}</h4>
-                    <p className="text-gray-500 text-xs sm:text-sm">{b.desc}</p>
-                  </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
 
-          {/* Right: phone mockup */}
-          <div className="flex justify-center mt-8 lg:mt-0">
-            <div className="relative">
-              <div className="absolute inset-0 bg-green-500/20 blur-3xl rounded-full scale-90" />
+          {/* Right: photo + phone mockup */}
+          <Reveal delay={150}>
+            <div className="relative w-full space-y-5">
+              <div className="relative h-60 sm:h-72 xl:h-80 rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_30px_70px_-35px_rgba(0,0,0,0.9)]">
+                <img
+                  src={IMG.runners}
+                  alt="Runners at sunrise"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+                <div className="img-shade opacity-80" />
+                <div className="img-tint" />
+              </div>
 
-              <div className="relative w-64 sm:w-72 bg-[#111] rounded-[3rem] border-2 border-green-500/30 p-5 sm:p-6 animate-float">
-                <div className="w-16 sm:w-20 h-2 bg-gray-700 rounded-full mx-auto mb-5 sm:mb-6" />
+              {/* Phone in front */}
+              <div className="relative z-10 w-full max-w-md mx-auto lg:mx-0 lg:ml-auto">
+                <div className="bg-[#0c120c] rounded-[2.8rem] border-2 border-green-500/30 p-4 shadow-[0_40px_80px_-30px_rgba(0,0,0,1)]">
+                  <div className="w-14 h-1.5 bg-gray-700 rounded-full mx-auto mb-4" />
 
-                <div className="bg-[#0a0f0a] rounded-2xl p-3 sm:p-4 space-y-3 sm:space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-green-400 font-bold text-xs sm:text-sm">Hoy</span>
-                    <span className="text-xs text-gray-500">04 oct</span>
-                  </div>
-
-                  <div className="text-center py-3 sm:py-4">
-                    <p className="text-4xl sm:text-5xl font-extrabold text-white">12.4</p>
-                    <p className="text-green-400 text-xs sm:text-sm mt-1">km recorridos</p>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-xs text-gray-500 mb-1">
-                      <span>CO₂ ahorrado</span>
-                      <span className="text-green-400">2.2 kg</span>
+                  <div className="bg-[#060b06] rounded-3xl p-4 space-y-3.5 border border-white/5">
+                    <div className="flex justify-between items-center">
+                      <span className="text-green-400 font-bold text-sm font-display">Today</span>
+                      <span className="text-xs text-gray-500">Oct 04</span>
                     </div>
-                    <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                      <div className="h-full w-3/4 bg-gradient-to-r from-green-500 to-cyan-400 rounded-full" />
+
+                    <div className="text-center py-2.5">
+                      <p className="font-display text-5xl font-extrabold text-white leading-none">
+                        12.4
+                      </p>
+                      <p className="text-green-400 text-xs mt-1.5 font-medium">km traveled</p>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between text-xs text-gray-500 mb-1.5">
+                        <span>CO₂ saved</span>
+                        <span className="text-green-400 font-semibold">2.2 kg</span>
+                      </div>
+                      <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                        <div className="h-full w-3/4 bg-gradient-to-r from-green-500 to-cyan-400 rounded-full shadow-[0_0_12px_rgba(74,222,128,0.7)]" />
+                      </div>
+                    </div>
+
+                    <div className="card-glass rounded-2xl p-3 flex justify-between items-center">
+                      <span className="text-xs text-gray-400">Available credits</span>
+                      <span className="text-white font-bold text-sm font-display">3.8 CCR</span>
+                    </div>
+
+                    <div className="bg-purple-500/10 border border-purple-500/25 rounded-2xl p-3 flex justify-between items-center">
+                      <span className="text-xs text-gray-400">Earnings</span>
+                      <span className="text-purple-300 font-bold text-sm font-display">+0.21 SOL</span>
                     </div>
                   </div>
 
-                  <div className="card-glass rounded-xl p-2.5 sm:p-3 flex justify-between items-center">
-                    <span className="text-xs text-gray-400">Bonos disponibles</span>
-                    <span className="text-white font-bold text-sm">3.8 CCR</span>
-                  </div>
-
-                  <div className="bg-purple-500/10 border border-purple-500/20 rounded-xl p-2.5 sm:p-3 flex justify-between items-center">
-                    <span className="text-xs text-gray-400">Ganancias</span>
-                    <span className="text-purple-300 font-bold text-sm">+0.21 SOL</span>
-                  </div>
+                  <div className="w-14 h-1.5 bg-gray-700 rounded-full mx-auto mt-4" />
                 </div>
-
-                <div className="w-12 sm:w-16 h-1 bg-gray-700 rounded-full mx-auto mt-5 sm:mt-6" />
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

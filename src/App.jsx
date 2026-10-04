@@ -10,7 +10,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="bg-[#0a0f0a] text-white">
+    <div className="min-h-screen w-full bg-[#0a0f0a] text-white overflow-x-clip">
       <Navbar />
       <Hero />
       <Stats />

@@ -1,117 +1,145 @@
 import { BarChart3, Globe2, FileCheck, Zap } from 'lucide-react'
+import Reveal from './Reveal'
+import { IMG } from '../assets/images'
 
 const perks = [
   {
-    icon: <Globe2 className="w-5 h-5 sm:w-6 sm:h-6" />,
-    title: 'Offset real y auditable',
-    desc: 'Cada bono está respaldado por kilómetros reales de movilidad sostenible, registrados en blockchain.',
+    icon: <Globe2 className="w-5 h-5" />,
+    title: 'Real, auditable offset',
+    desc: 'Every credit is backed by real kilometers of sustainable mobility, recorded on blockchain.',
   },
   {
-    icon: <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6" />,
-    title: 'Dashboard de ESG',
-    desc: 'Monitorea en tiempo real cuánto CO₂ has compensado para tus reportes ESG y metas de sostenibilidad.',
+    icon: <BarChart3 className="w-5 h-5" />,
+    title: 'ESG dashboard',
+    desc: 'Monitor in real time how much CO₂ you have offset for your ESG reports and sustainability goals.',
   },
   {
-    icon: <FileCheck className="w-5 h-5 sm:w-6 sm:h-6" />,
-    title: 'Certificados automáticos',
-    desc: 'Genera reportes PDF con los datos blockchain listos para auditorías y presentaciones corporativas.',
+    icon: <FileCheck className="w-5 h-5" />,
+    title: 'Automatic certificates',
+    desc: 'Generate PDF reports with blockchain data, ready for audits and corporate presentations.',
   },
   {
-    icon: <Zap className="w-5 h-5 sm:w-6 sm:h-6" />,
-    title: 'Compra instantánea',
-    desc: 'Adquiere créditos de carbono en segundos usando Solana Pay. Sin formularios complejos ni intermediarios.',
+    icon: <Zap className="w-5 h-5" />,
+    title: 'Instant purchase',
+    desc: 'Buy carbon credits in seconds using Solana Pay. No complex forms, no intermediaries.',
   },
 ]
 
 export default function ForCompanies() {
   return (
-    <section id="empresas" className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left: dashboard mockup */}
-          <div className="order-2 lg:order-1 flex justify-center mt-8 lg:mt-0">
-            <div className="relative w-full max-w-sm sm:max-w-md">
-              <div className="absolute inset-0 bg-purple-500/15 blur-3xl rounded-2xl" />
-              <div className="relative bg-[#111] rounded-3xl border border-purple-500/20 p-4 sm:p-6 space-y-4 sm:space-y-5">
+    <section id="empresas" className="relative py-20 lg:py-28 overflow-hidden">
+      <div className="absolute -right-40 top-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="relative w-full max-w-[88rem] mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="grid xl:grid-cols-[1.05fr_0.95fr] gap-12 xl:gap-20 items-center">
+          {/* Left: office photo + dashboard mockup */}
+          <Reveal className="order-2 lg:order-1">
+            <div className="relative w-full space-y-5">
+              <div className="relative h-60 sm:h-72 xl:h-80 rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_30px_70px_-35px_rgba(0,0,0,0.9)]">
+                <img
+                  src={IMG.office}
+                  alt="Modern sustainable office"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+                <div className="img-shade opacity-85" />
+                <div className="img-tint" style={{ background: 'linear-gradient(135deg, rgba(153,69,255,0.3), transparent 55%, rgba(34,211,238,0.2))' }} />
+              </div>
+
+              {/* Dashboard in front */}
+              <div className="relative w-full max-w-xl mx-auto lg:mx-0 lg:mr-auto bg-[#0b110b]/95 backdrop-blur-xl rounded-[1.75rem] border border-purple-500/25 p-5 space-y-4 shadow-[0_40px_80px_-30px_rgba(0,0,0,1)]">
                 {/* Header */}
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xs text-gray-500">Panel Corporativo</p>
-                    <p className="font-bold text-white text-sm sm:text-base">Empresa ACME S.A.</p>
+                    <p className="text-[11px] text-gray-500 uppercase tracking-widest font-semibold">
+                      Corporate panel
+                    </p>
+                    <p className="font-bold text-white text-sm sm:text-base font-display">ACME Inc.</p>
                   </div>
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 bg-purple-500/20 rounded-xl flex items-center justify-center shrink-0">
-                    <Building className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
+                  <div className="w-10 h-10 bg-purple-500/20 border border-purple-500/30 rounded-xl flex items-center justify-center shrink-0">
+                    <Building className="w-5 h-5 text-purple-400" />
                   </div>
                 </div>
 
                 {/* Big metric */}
-                <div className="bg-gradient-to-r from-purple-500/20 to-cyan-500/10 rounded-2xl p-3 sm:p-4 text-center">
-                  <p className="text-gray-400 text-xs sm:text-sm">CO₂ compensado este año</p>
-                  <p className="text-4xl sm:text-5xl font-extrabold text-white mt-1">
-                    48.2 <span className="text-xl sm:text-2xl text-purple-400">ton</span>
+                <div className="bg-gradient-to-r from-purple-500/20 via-purple-500/5 to-cyan-500/10 border border-white/5 rounded-2xl p-4 text-center">
+                  <p className="text-gray-400 text-xs sm:text-sm">CO₂ offset this year</p>
+                  <p className="font-display text-4xl sm:text-5xl font-extrabold text-white mt-1.5 leading-none">
+                    48.2 <span className="text-xl sm:text-2xl text-purple-400">tons</span>
                   </p>
-                  <p className="text-green-400 text-xs sm:text-sm mt-1">↑ 22% vs año anterior</p>
+                  <p className="text-green-400 text-xs mt-2 font-semibold">↑ 22% vs last year</p>
                 </div>
 
                 {/* Monthly bars */}
                 <div>
-                  <p className="text-xs text-gray-500 mb-2 sm:mb-3">Créditos por mes</p>
-                  <div className="flex items-end gap-1 sm:gap-2 h-14 sm:h-16">
+                  <p className="text-xs text-gray-500 mb-2.5 font-medium">Credits per month</p>
+                  <div className="flex items-end gap-1.5 h-16">
                     {[40, 55, 35, 70, 60, 85, 75, 90, 65, 80, 95, 88].map((h, i) => (
                       <div
                         key={i}
-                        className="flex-1 rounded-sm bg-gradient-to-t from-purple-600 to-cyan-400 opacity-80"
+                        className="flex-1 rounded-t bg-gradient-to-t from-purple-600 to-cyan-400 opacity-85 hover:opacity-100 transition-opacity"
                         style={{ height: `${h}%` }}
                       />
                     ))}
                   </div>
-                  <div className="flex justify-between text-xs text-gray-600 mt-1">
-                    <span>Ene</span><span>Dic</span>
+                  <div className="flex justify-between text-xs text-gray-600 mt-1.5 font-medium">
+                    <span>Jan</span>
+                    <span>Dec</span>
                   </div>
                 </div>
 
                 {/* Purchases */}
-                <div className="space-y-2">
+                <div className="space-y-2.5 pt-1">
                   {[
-                    { label: 'Compra #0x9a2f', amount: '120 CCR', date: 'hoy', color: 'text-green-400' },
-                    { label: 'Compra #0x7b1c', amount: '85 CCR', date: 'ayer', color: 'text-green-400' },
-                    { label: 'Compra #0x3d8e', amount: '200 CCR', date: '2 oct', color: 'text-cyan-400' },
+                    { label: 'Purchase #0x9a2f', amount: '120 CCR', date: 'today', color: 'text-green-400' },
+                    { label: 'Purchase #0x7b1c', amount: '85 CCR', date: 'yesterday', color: 'text-green-400' },
+                    { label: 'Purchase #0x3d8e', amount: '200 CCR', date: 'Oct 2', color: 'text-cyan-400' },
                   ].map((t) => (
-                    <div key={t.label} className="flex justify-between items-center text-xs sm:text-sm">
+                    <div
+                      key={t.label}
+                      className="flex justify-between items-center text-xs sm:text-sm py-1.5 border-b border-white/5 last:border-0"
+                    >
                       <div>
                         <p className="text-white font-medium">{t.label}</p>
                         <p className="text-xs text-gray-600">{t.date}</p>
                       </div>
-                      <span className={`font-bold ${t.color}`}>{t.amount}</span>
+                      <span className={`font-bold font-display ${t.color}`}>{t.amount}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right: text */}
           <div className="order-1 lg:order-2">
-            <p className="text-purple-400 font-semibold text-xs sm:text-sm uppercase tracking-widest mb-3">Para empresas</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 sm:mb-6">
-              Compensa tu huella{' '}
-              <span className="gradient-text">con impacto real</span>
-            </h2>
-            <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-10">
-              Adquiere créditos de carbono genuinos, generados por personas reales que eligen moverse de forma sostenible. Cada bono es verificable, inmutable y listo para tus reportes ESG.
-            </p>
+            <Reveal>
+              <p className="eyebrow text-purple-400 mb-4">For companies</p>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.08] mb-5">
+                Offset your footprint <span className="gradient-text">with real impact</span>
+              </h2>
+              <p className="text-gray-400 text-base sm:text-lg leading-relaxed mb-9 max-w-xl">
+                Acquire genuine carbon credits generated by real people who choose to move
+                sustainably. Every credit is verifiable, immutable, and ready for your ESG reports.
+              </p>
+            </Reveal>
 
-            <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
-              {perks.map((p) => (
-                <div key={p.title} className="flex gap-3 sm:gap-4">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 bg-purple-500/15 rounded-xl flex items-center justify-center text-purple-400 shrink-0">
-                    {p.icon}
+            <div className="grid sm:grid-cols-2 gap-5">
+              {perks.map((p, i) => (
+                <Reveal key={p.title} delay={100 + i * 100}>
+                  <div className="flex gap-4 h-full">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-purple-500/25 to-purple-500/5 border border-purple-500/25 flex items-center justify-center text-purple-400 shrink-0">
+                      {p.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-display font-semibold text-white mb-1.5 text-[15px]">
+                        {p.title}
+                      </h4>
+                      <p className="text-gray-500 text-sm leading-relaxed">{p.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-white mb-1 text-sm sm:text-base">{p.title}</h4>
-                    <p className="text-gray-500 text-xs sm:text-sm">{p.desc}</p>
-                  </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
